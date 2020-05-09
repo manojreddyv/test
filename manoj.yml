@@ -1,6 +1,13 @@
-- name: Hello World Sample
-  hosts: all
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    username: manoj.bunny@gmail.com
+    token: 7f5eb4d7b77d0b57ae162288b96ac46644a6f8d0
+    repo_name: test
+ 
   tasks:
-    - name: Hello Message
-      debug:
-        msg: "Hello World!"
+  - name: Checkout The Code From Github Using Ansible.
+    git:
+     repo: 'https://{{ token }}@github.com/{{ username }}/{{ repo_name }}.git'
+     dest: /root/awx/playbook
