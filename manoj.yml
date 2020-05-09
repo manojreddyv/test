@@ -1,7 +1,6 @@
-hello Hie
-
-Hey hai 
-
-how r u 
-
- der   Happy Valentines day... 
+- name: Hello World Sample
+  hosts: all
+  tasks:
+    - name: Hello Message
+      debug:
+        msg: "Hello World!"
