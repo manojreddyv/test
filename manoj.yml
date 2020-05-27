@@ -1,7 +1,15 @@
 ---
-- hosts: all
+- hosts: support-idea-staging
   tasks:
   - name: Ansible copy file to remote server
     copy:
       src: /var/rbt_wav_file_mapping.sql
       dest: /var
+  - name: listing the file
+    shell: ls /var/rbt_wav_file_mapping.sql
+    register: output
+    
+  - name: display output
+    debug:
+      msg: '{{ output.stdout }}'
+...      
