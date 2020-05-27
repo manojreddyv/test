@@ -1,13 +1,7 @@
 ---
-- hosts: localhost
-  gather_facts: no
-  vars:
-    username: manoj.reddy
-    token: 7f5eb4d7b77d0b57ae162288b96ac46644a6f8d0
-    repo_name: rbt_core
- 
+- hosts: all
   tasks:
-  - name: Checkout The Code From Github Using Ansible.
-    git:
-     repo: 'https://172.16.28.141/{{ username }}/{{ repo_name }}.git'
-     dest: /root/awx/playbook
+  - name: Ansible copy file to remote server
+    copy:
+      src: /var/rbt_wav_file_mapping.sql
+      dest: /var
